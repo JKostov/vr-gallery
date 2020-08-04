@@ -1,7 +1,7 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import {ReactInstance} from 'react-360-web';
+import { ReactInstance, Location } from 'react-360-web';
 
 function init(bundle, parent, options = {}) {
   const r360 = new ReactInstance(bundle, parent, {
@@ -11,13 +11,17 @@ function init(bundle, parent, options = {}) {
   });
 
   // Render your app content to the default cylinder surface
-  r360.renderToSurface(
-    r360.createRoot('vr_gallery', { /* initial props */ }),
-    r360.getDefaultSurface()
-  );
+  // r360.renderToSurface(
+  //   r360.createRoot('vr_gallery', { /* initial props */ }),
+  //   r360.getDefaultSurface()
+  // );
+
+const customLocation = new Location([0, 0, 0]);
+
+r360.renderToLocation(r360.createRoot('vr_gallery'), customLocation);
 
   // Load the initial environment
-  r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  // r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
 }
 
 window.React360 = {init};
