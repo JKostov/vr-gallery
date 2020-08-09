@@ -1,5 +1,7 @@
-import React from 'react';
-import {
+import React from "react";
+import HoverImage from "./components/HoverImage";
+import ExplainedImage from "./components/ExplainedImage";
+import AnimatedText from "./components/AnimatedText";import {
   AppRegistry,
   StyleSheet,
   Text,
@@ -40,4 +42,9 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('vr_gallery', () => vr_gallery);
+
+AppRegistry.registerComponent("vr_gallery", () => vr_gallery);
+AppRegistry.registerComponent("CustomImage", () => CustomImage);
+AppRegistry.registerComponent("AnimatedText", () => AnimatedText);
+AppRegistry.registerComponent("HoverImage", () => HoverImage);
+AppRegistry.registerComponent("ExplainedImage", () => ExplainedImage);
