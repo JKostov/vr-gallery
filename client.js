@@ -16,7 +16,7 @@ function init(bundle, parent, options = {}) {
   //   r360.getDefaultSurface()
   // );
 
-const customLocation = new Location([0, 0, 0]);
+const customLocation = new Location([10, 0, 0]);
 
 r360.renderToLocation(r360.createRoot('vr_gallery'), customLocation);
 

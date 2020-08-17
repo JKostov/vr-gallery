@@ -14,17 +14,16 @@ export default class vr_gallery extends React.Component {
     return (
       <View>
 
-        <AmbientLight intensity={0.4} style={{ color: 'white', transform: [
+        <AmbientLight intensity={1} style={{ color: 'white', transform: [
             {translate: [0, 0, 0]}] }}/>
 
         <Entity
           style={{transform: [
             {scale: 3},
-            {translate: [0, 0, 0]}]
+            {translate: [10, 0, 0]}]
           }}
           source={{
-            obj: asset('art-gallery-template.obj'),
-            mtl: asset('art-gallery-template.mtl'),
+            gltf2: asset('test/scene.gltf')
           }}
       />
       </View>
