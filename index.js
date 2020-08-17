@@ -19,11 +19,11 @@ export default class vr_gallery extends React.Component {
 
         <Entity
           style={{transform: [
-            {scale: 3},
-            {translate: [10, 0, 0]}]
+            {scale: 1},
+            {translate: [-1, -0.5, 0]}]
           }}
           source={{
-            gltf2: asset('test/scene.gltf')
+            gltf2: asset('scene.gltf')
           }}
       />
       </View>
