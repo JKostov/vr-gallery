@@ -16,12 +16,12 @@ function init(bundle, parent, options = {}) {
   //   r360.getDefaultSurface()
   // );
 
-const customLocation = new Location([10, 0, 0]);
+const customLocation = new Location([0, 0, 0]);
 
 r360.renderToLocation(r360.createRoot('vr_gallery'), customLocation);
 
   // Load the initial environment
-  // r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
+  r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
 }
 
 window.React360 = {init};
