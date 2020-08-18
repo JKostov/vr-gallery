@@ -19,7 +19,7 @@ function init(bundle, parent, options = {}) {
 
   r360.compositor.setBackground(r360.getAssetURL('360_world.jpg'));
 
-  r360.controls.addCameraController(new KeyboardCameraController());
+  r360.controls.addCameraController(new KeyboardCameraController(-9.3, 3, -13, 3.8));
 }
 
 window.React360 = { init };

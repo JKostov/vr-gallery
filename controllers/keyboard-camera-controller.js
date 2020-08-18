@@ -1,9 +1,4 @@
-
 import { Vector3, Quaternion } from 'three';
-
-
-const SPEED = 0.2;
-const MOVING_DISTANCE = 0.1;
 
 class ObjectNotation {
   position = null;
@@ -38,12 +33,14 @@ class ObjectNotation {
 export default class KeyboardCameraController {
   movingX = 0;
   movingZ = 0;
-  xDownLimit = -9.3;
-  xUpLimit = 3
-  zDownLimit = -13;
-  zUpLimit = 3.8;
 
-  constructor() {
+  constructor(xDownLimit = -100, xUpLimit = 100, zDownLimit = -100, zUpLimit = 100, movingSpeed = 0.2) {
+    this.xDownLimit = xDownLimit;
+    this.xUpLimit = xUpLimit;
+    this.zDownLimit = zDownLimit;
+    this.zUpLimit = zUpLimit;
+    this.movingSpeed = movingSpeed;
+
     document.addEventListener('keydown', (event) => this.onKeyDown(event));
   }
 
@@ -63,23 +60,22 @@ export default class KeyboardCameraController {
   }
 
   moveForward() {
-    this.movingZ = -SPEED;
+    this.movingZ = -this.movingSpeed;
   }
 
   moveBackward() {
-    this.movingZ = SPEED;
+    this.movingZ = this.movingSpeed;
   }
 
   moveLeft() {
-    this.movingX = -SPEED;
+    this.movingX = -this.movingSpeed;
   }
 
   moveRight() {
-    this.movingX = SPEED;
+    this.movingX = this.movingSpeed;
   }
 
   fillCameraProperties(positionArray, rotationArray) {
-    console.log(positionArray);
     if (this.movingZ === 0 && this.movingX === 0) {
       return false;
     }
@@ -92,20 +88,13 @@ export default class KeyboardCameraController {
     if (this.movingZ !== 0) {
       cameraObjectNotation.translateZ(this.movingZ);
 
-      this.movingZ += this.movingZ;
-      if (Math.abs(this.movingZ) >= MOVING_DISTANCE) {
-        this.movingZ = 0;
-      }
-
+      this.movingZ = 0;
     }
 
     if (this.movingX !== 0) {
       cameraObjectNotation.translateX(this.movingX);
 
-      this.movingX += this.movingX;
-      if (Math.abs(this.movingX) >= MOVING_DISTANCE) {
-        this.movingX = 0;
-      }
+      this.movingX = 0;
     }
 
     if (cameraObjectNotation.position.z + this.movingZ < this.zDownLimit || cameraObjectNotation.position.z + this.movingZ > this.zUpLimit) {
