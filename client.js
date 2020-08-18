@@ -1,5 +1,5 @@
 import { ReactInstance, Location } from 'react-360-web';
-import KeyboardCameraController from '@martinpham/react-360-keyboard-camera-controller';
+import KeyboardCameraController from './controllers/keyboard-camera-controller';
 
 function init(bundle, parent, options = {}) {
   const r360 = new ReactInstance(bundle, parent, {
@@ -13,7 +13,7 @@ function init(bundle, parent, options = {}) {
     r360.getDefaultSurface()
   );
 
-  const customLocation = new Location([0, 0, 0]);
+  const customLocation = new Location([0, -1, 0]);
 
   r360.renderToLocation(r360.createRoot('vr_gallery'), customLocation);
 

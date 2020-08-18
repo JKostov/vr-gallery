@@ -12,7 +12,6 @@ export default class Picture extends Component {
           width: this.props.width,
           backgroundColor: 'red',
           transform: [
-            { scale: 1 },
             { translate: [this.props.x, this.props.y, this.props.z] },
             { rotateY: this.props.rotateY },
           ],
