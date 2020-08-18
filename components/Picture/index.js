@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { View, asset, Image } from 'react-360';
+import { asset, Image, VrButton } from 'react-360';
 
 export default class Picture extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    console.log('picture clicked');
+  }
+
   render() {
     return (
-      <View
+      <VrButton
+        onClick={this.onClick}
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -18,7 +29,7 @@ export default class Picture extends Component {
         }}
       >
         <Image source={asset(this.props.asset)} style={{ flex: 1 }} />
-      </View>
+      </VrButton>
     );
   }
 }
