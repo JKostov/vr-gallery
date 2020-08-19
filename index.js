@@ -10,9 +10,11 @@ export default class vr_gallery extends React.Component {
   render() {
     return (
       <View>
-        <Lights />
+        {/* <Lights /> */}
 
-        <Gallery />
+        {/* <Gallery /> */}
+
+        <ExplainedImage />
 
       </View>
     );
