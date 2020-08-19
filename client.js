@@ -79,8 +79,6 @@ class MyModule extends Module {
   }
 
   getValueWithCallback(id) {
-    console.log(this.x, this.z);
-
     const cameraQuaternion = r360.getCameraQuaternion();
     const quaternion = new Quaternion(cameraQuaternion[0], cameraQuaternion[1], cameraQuaternion[2], cameraQuaternion[3]);
     const position = new Vector3(this.x, 0, this.z);
@@ -112,8 +110,8 @@ class MyModule extends Module {
 
 
     this._ctx.invokeCallback(
-      id, // callback id, passed to the method
-      [this.x, this.z] // array of arguments passed to callback
+      id,
+      [this.x, this.z]
     );
   }
 
