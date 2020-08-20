@@ -7,7 +7,7 @@ let r360 = null;
 function init(bundle, parent, options = {}) {
 
   // Explained image surface
-  explainedImage = new Surface(500, 500, Surface.SurfaceShape.Flat);
+  explainedImage = new Surface(850, 500, Surface.SurfaceShape.Flat);
 
   r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
@@ -39,7 +39,7 @@ function init(bundle, parent, options = {}) {
   // Custom surfaces
   hoverImage = new Surface(500, 500, Surface.SurfaceShape.Flat);
   hoverImage.setAngle(-Math.PI / 2, 0);
-  r360.renderToSurface(r360.createRoot("HoverImage", {}), hoverImage);
+  // r360.renderToSurface(r360.createRoot("HoverImage", {}), hoverImage);
   r360.renderToSurface(r360.createRoot("ExplainedImage", {}), explainedImage);
 }
 
