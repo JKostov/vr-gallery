@@ -5,9 +5,6 @@ import ExplainedImageModule from './modules/explained-image-module';
 
 function init(bundle, parent, options = {}) {
 
-  // Explained image surface
-  // explainedImage = new Surface(850, 500, Surface.SurfaceShape.Flat);
-
   const r360 = new ReactInstance(bundle, parent, {
     fullScreen: true,
     nativeModules: [
@@ -46,7 +43,6 @@ function init(bundle, parent, options = {}) {
   hoverImage = new Surface(500, 500, Surface.SurfaceShape.Flat);
   hoverImage.setAngle(-Math.PI / 2, 0);
   // r360.renderToSurface(r360.createRoot("HoverImage", {}), hoverImage);
-  // r360.renderToSurface(r360.createRoot("ExplainedImage", {}), explainedImage);
 }
 
 class surfaceModule extends Module {
