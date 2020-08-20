@@ -7,7 +7,7 @@ import {
 import Entity from 'Entity';
 import Picture from '../Picture';
 
-const { MyModule } = NativeModules;
+const { KeyboardMovementModule } = NativeModules;
 
 export default class Gallery extends Component {
 
@@ -21,11 +21,11 @@ export default class Gallery extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.callCheck(), 50);
+    setTimeout(() => this.callCheck(), 1000);
   }
 
   callCheck() {
-    MyModule.getValueWithCallback((x, z) => this.setState({ x, z }));
+    KeyboardMovementModule.getValueWithCallback((x, z) => this.setState({ x, z }));
     setTimeout(() => this.callCheck(), 50);
   }
 
