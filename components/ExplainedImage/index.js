@@ -23,7 +23,7 @@ export default class ExplainedImage extends React.Component {
     this.setState({ selectedAnswer: index });
     console.log('index: ', index);
   }
-  
+
   isCorrect = (answer) => {
     return answer === this.state.correctAnswer;
   };
@@ -40,22 +40,44 @@ export default class ExplainedImage extends React.Component {
 
         <View style={styles.poll}>
           {this.state.step % 2 === 0 ? (
-            <View>
-              <Text style={styles.question}>{this.state.question}</Text>
+            <View style={styles.firstPage}>
+              <View style={styles.questionWrapper}>
+                <Text style={styles.question}>{this.state.question}</Text>
 
-              {this.state.answerList.map((answer, index) => (
-                <View style={styles.answerWrapper}>
-                  <VrButton
-                    style={
-                      this.state.correctAnswer === this.state.selectedAnswer
-                        ? styles.radioChecked
-                        : styles.radioButton
-                    }
-                    onClick={() =>   this.setState({ selectedAnswer: index })}
-                  />
-                  <Text style={styles.answerText}>{answer}</Text>
-                </View>
-              ))}
+                {this.state.answerList.map((answer, index) => (
+                  <View style={styles.answerWrapper}>
+                    <VrButton
+                      style={
+                        this.state.selectedAnswer === index
+                          ? styles.radioChecked
+                          : styles.radioButton
+                      }
+                      onClick={() => {
+                        this.setState({ selectedAnswer: index });
+                        console.log('index:', index);
+                      }}
+                    />
+                    <Text style={styles.answerText}>{answer}</Text>
+                  </View>
+                ))}
+              </View>
+
+              <View style={styles.result}>
+                <Text style={{color: 'black'}}>Your answer is: </Text>
+                {this.state.selectedAnswer !== -1 && (
+                  <Text style={styles.correctness}>
+                    {this.state.selectedAnswer === this.state.correctAnswer
+                      ? 'correct'
+                      : 'incorrect'}
+                  </Text>
+                )}
+              </View>
+
+              <View >
+                <VrButton onClick={() => this.setState({step: 1})}>
+                  <Text style={styles.seeMore}>See more</Text>
+                </VrButton>
+              </View>
             </View>
           ) : (
             <View style={styles.explanation}>

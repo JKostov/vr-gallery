@@ -11,10 +11,24 @@ export default StyleSheet.create({
 
   poll: {
     flexDirection: 'column',
-    backgroundColor: 'green',
-    padding: 20,
+    backgroundColor: 'white',
     opacity: 0.95,
     width: 350,
+    // borderWidth: 3,
+    // borderColor: 'red',
+  },
+
+  firstPage: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    padding: 20,
+    // borderWidth: 5,
+    // borderColor: 'white',
+  },
+
+  questionWrapper: {
+    // borderColor: 'black',
+    // borderWidth: 3,
   },
 
   question: {
@@ -25,6 +39,9 @@ export default StyleSheet.create({
   answerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 8,
+    // borderColor: 'black',
+    // borderWidth: 3,
   },
 
   radioChecked: {
@@ -47,12 +64,36 @@ export default StyleSheet.create({
 
   answerText: {
     color: 'black',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+  },
+
+  hiddenResult: {
+    opacity: 0,
+  },
+
+  message: {
+    marginBottom: 16,
+    height: 32,
+  },
+
+  correctness: {
+    marginLeft: 4,
+    color: 'black',
+  },
+
+  result: {
+    flexDirection: 'row',
+  },  
+
+  seeMore: {
+    justifyContent: 'flex-end',
+    color: 'blue',
+    textDecorationStyle: 'solid',
   },
 
   explanation: {
     flexDirection: 'column',
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     padding: 20,
     opacity: 0.95,
     width: 350,
