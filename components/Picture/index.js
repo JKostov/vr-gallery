@@ -6,12 +6,21 @@ const { ExplainedImageModule } = NativeModules;
 export default class Picture extends Component {
   constructor(props) {
     super(props);
-
+    this.getAdequateProps = this.getAdequateProps.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
+  getAdequateProps() {
+    const {asset, question, answers, correctAnswer, artist, date, location, title} = this.props;
+   
+    return {
+      asset, question, answers, correctAnswer, artist, date, location, title
+    }
+  }
+
   onClick() {
-    ExplainedImageModule.open(this.props.asset);
+    const selectedProps = this.getAdequateProps();
+    ExplainedImageModule.open(selectedProps);
   }
 
   render() {
