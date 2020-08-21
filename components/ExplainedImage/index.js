@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './styles';
-import { View, Text, asset, Animated, Image, VrButton } from 'react-360';
+import { View, Text, asset, Animated, Image, VrButton, NativeModules } from 'react-360';
+
+const { ExplainedImageModule } = NativeModules;
 
 export default class ExplainedImage extends React.Component {
   constructor(props) {
     super(props);
+
+    console.log(props);
 
     this.state = {
       clicked: false,
@@ -100,6 +104,7 @@ export default class ExplainedImage extends React.Component {
             </View>
           )}
         </View>
+        <VrButton onClick={() => ExplainedImageModule.close()}><Text>Close</Text></VrButton>
       </View>
     );
   }

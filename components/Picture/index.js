@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { asset, Image, VrButton } from 'react-360';
+import { asset, Image, VrButton, NativeModules } from 'react-360';
+
+const { ExplainedImageModule } = NativeModules;
 
 export default class Picture extends Component {
   constructor(props) {
@@ -9,7 +11,7 @@ export default class Picture extends Component {
   }
 
   onClick() {
-    console.log('picture clicked');
+    ExplainedImageModule.open(this.props.asset);
   }
 
   render() {
