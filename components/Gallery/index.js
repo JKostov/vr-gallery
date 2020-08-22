@@ -4,6 +4,7 @@ import Entity from 'Entity';
 import Picture from '../Picture';
 
 const { KeyboardMovementModule } = NativeModules;
+// const { AudioModule } = NativeModules;
 
 export default class Gallery extends Component {
   constructor(props) {
@@ -17,6 +18,12 @@ export default class Gallery extends Component {
 
   componentDidMount() {
     setTimeout(() => this.callCheck(), 1000);
+
+    // Uncomment to work
+    // AudioModule.playEnvironmental({
+    // source: asset('environmental.mp3'),
+    // volume: 0.5
+    // })
   }
 
   callCheck() {
