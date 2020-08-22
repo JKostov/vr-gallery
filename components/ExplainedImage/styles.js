@@ -115,7 +115,7 @@ export default StyleSheet.create({
 
   title: {
     color: 'black',
-    fontSize: 48,
+    fontSize: 40,
     fontWeight: 'bold',
     marginBottom: 20,
   },
@@ -123,12 +123,12 @@ export default StyleSheet.create({
   label: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 32,
+    fontSize: 28,
   },
 
   content: {
     color: 'black',
-    fontSize: 28,
+    fontSize: 24,
   },
 
   closeButton: {
