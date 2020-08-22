@@ -1,8 +1,17 @@
 import React from 'react';
 import styles from './styles';
-import { View, Text, asset, Animated, Image, VrButton, NativeModules } from 'react-360';
+import {
+  View,
+  Text,
+  asset,
+  Animated,
+  Image,
+  VrButton,
+  NativeModules,
+} from 'react-360';
 
 const { ExplainedImageModule } = NativeModules;
+const { AudioModule } = NativeModules;
 
 export default class ExplainedImage extends React.Component {
   constructor(props) {
@@ -15,17 +24,23 @@ export default class ExplainedImage extends React.Component {
       selectedAnswer: -1,
     };
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(index) {
-    this.setState({ selectedAnswer: index });
-    console.log('index: ', index);
+     this.getButtonStyles = this.getButtonStyles.bind(this);
   }
 
   isCorrect = (answer) => {
     return answer === this.props.imageInfo.correctAnswer;
   };
+
+  getButtonStyles(index) {
+    if (this.state.selectedAnswer === index) {
+      if (this.state.selectedAnswer === this.props.imageInfo.correctAnswer) {
+        return styles.radioSuccess;
+      }
+      return styles.radioError;
+    } 
+
+    return styles.radioButton;
+  }
 
   render() {
     return (
@@ -41,19 +56,25 @@ export default class ExplainedImage extends React.Component {
           {this.state.step % 2 === 0 ? (
             <View style={styles.firstPage}>
               <View style={styles.questionWrapper}>
-                <Text style={styles.question}>{this.props.imageInfo.question}</Text>
+                <Text style={styles.question}>
+                  {this.props.imageInfo.question}
+                </Text>
 
                 {this.props.imageInfo.answers.map((answer, index) => (
                   <View style={styles.answerWrapper} key={index}>
                     <VrButton
-                      style={
-                        this.state.selectedAnswer === index
-                          ? styles.radioChecked
-                          : styles.radioButton
-                      }
+                      style={this.getButtonStyles(index)}
                       onClick={() => {
                         this.setState({ selectedAnswer: index });
-                        console.log('index:', index);
+
+                        const sound =
+                          index === this.props.imageInfo.correctAnswer
+                            ? 'success.wav'
+                            : 'error.wav';
+
+                        AudioModule.playOneShot({
+                          source: asset(sound),
+                        });
                       }}
                     />
                     <Text style={styles.answerText}>{answer}</Text>
@@ -62,18 +83,19 @@ export default class ExplainedImage extends React.Component {
               </View>
 
               <View style={styles.result}>
-                <Text style={{color: 'black'}}>Your answer is: </Text>
+                <Text style={{ color: 'black' }}>Your answer is: </Text>
                 {this.state.selectedAnswer !== -1 && (
                   <Text style={styles.correctness}>
-                    {this.state.selectedAnswer === this.props.imageInfo.correctAnswer
+                    {this.state.selectedAnswer ===
+                    this.props.imageInfo.correctAnswer
                       ? 'correct'
                       : 'incorrect'}
                   </Text>
                 )}
               </View>
 
-              <View >
-                <VrButton onClick={() => this.setState({step: 1})}>
+              <View>
+                <VrButton onClick={() => this.setState({ step: 1 })}>
                   <Text style={styles.seeMore}>See more</Text>
                 </VrButton>
               </View>
@@ -84,25 +106,29 @@ export default class ExplainedImage extends React.Component {
 
               <View style={styles.item}>
                 <Text style={styles.label}>Artist: </Text>
-                <Text style={styles.content}>{this.props.imageInfo.artist}</Text>
+                <Text style={styles.content}>
+                  {this.props.imageInfo.artist}
+                </Text>
               </View>
 
               <View style={styles.item}>
                 <Text style={styles.label}>Estimated date:</Text>
-          <Text style={styles.content}>{this.props.imageInfo.date}</Text>
+                <Text style={styles.content}>{this.props.imageInfo.date}</Text>
               </View>
 
               <View style={styles.item}>
                 <Text style={styles.label}>Where to see it:</Text>
-          <Text style={styles.content}>{this.props.imageInfo.location}</Text>
+                <Text style={styles.content}>
+                  {this.props.imageInfo.location}
+                </Text>
               </View>
             </View>
           )}
         </View>
-        <VrButton onClick={() => ExplainedImageModule.close()}><Text>Close</Text></VrButton>
+        <VrButton onClick={() => ExplainedImageModule.close()}>
+          <Text>Close</Text>
+        </VrButton>
       </View>
     );
   }
-
-  handleClick = () => {};
 }
