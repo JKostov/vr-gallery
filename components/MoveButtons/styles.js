@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-360';
 
+const soundText = {
+  color: 'black',
+  textAlign: 'center',
+};
+
 export default StyleSheet.create({
   wrapper: {
     display: 'flex',
@@ -7,11 +12,20 @@ export default StyleSheet.create({
     alignItems: 'flex-end',
     position: 'relative',
   },
+
+  music: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    borderWidth: 4,
+    borderColor: 'green',
+  },
+
   grid: {
     display: 'flex',
     flexDirection: 'column',
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     position: 'absolute',
     bottom: 0,
     right: 0,
@@ -30,5 +44,30 @@ export default StyleSheet.create({
   },
   text: {
     color: 'black',
+  },
+
+  soundRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 150,
+    height: 50,
+  },
+
+  soundButton: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  soundOn: {
+    ...soundText,
+  },
+
+  soundOff: {
+    ...soundText,
+    textDecorationLine: 'line-through',
+    textDecorationStyle: 'solid',
   },
 });
