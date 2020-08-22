@@ -22,9 +22,12 @@ export default class ExplainedImage extends React.Component {
       fade: new Animated.Value(0),
       step: 0,
       selectedAnswer: -1,
+      windowWidth: 0,
+      iphoneX: 1125,
     };
 
      this.getButtonStyles = this.getButtonStyles.bind(this);
+     this.updateWindowSize = this.updateWindowSize.bind(this);
   }
 
   isCorrect = (answer) => {
@@ -42,9 +45,30 @@ export default class ExplainedImage extends React.Component {
     return styles.radioButton;
   }
 
+  updateWindowSize() {
+    this.setState({windowWidth: window.innerWidth});
+
+    console.log('inner width: ', window)
+    // if( window.innweWidht < 1125) {
+      // alert('Yo');
+    // }
+  }
+
+  componentDidMount() {
+    alert('1');
+    this.updateWindowSize();
+    window.addEventListener('resize', this.updateWindowSize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowSize)
+  }
+
   render() {
     return (
-      <View style={styles.explainWrapper}>
+      <View>
+        
+        <View style={styles.explainWrapper}>
         <View>
           <Image
             source={asset(this.props.imageInfo.asset)}
@@ -125,9 +149,12 @@ export default class ExplainedImage extends React.Component {
             </View>
           )}
         </View>
-        <VrButton onClick={() => ExplainedImageModule.close()}>
-          <Text>Close</Text>
-        </VrButton>
+        </View>
+        
+        
+        <VrButton onClick={() => ExplainedImageModule.close()} style={styles.closeButton}>
+          <Text style={styles.closeText}>Close</Text>
+        </VrButton> 
       </View>
     );
   }

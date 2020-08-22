@@ -9,35 +9,41 @@ const radioFilled = {
   marginRight: 16,
 };
 
+const boldText = {
+  color: 'black',
+  fontWeight: 'bold',
+};
+
 export default StyleSheet.create({
+  outerWrapper: {
+    flexDirection: 'column',
+
+    width: 400,
+    backgroundColor: 'blue',
+  },
+
   explainWrapper: {
     opacity: 0.9,
     flexDirection: 'row',
+    backgroundColor: 'white',
     borderColor: 'white',
     borderWidth: 5,
-    backgroundColor: 'white',
   },
 
   poll: {
     flexDirection: 'column',
     backgroundColor: 'white',
     opacity: 0.95,
-    width: 350,
-    // borderWidth: 3,
-    // borderColor: 'red',
+    width: 390,
   },
 
   firstPage: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     padding: 20,
-    // borderWidth: 5,
-    // borderColor: 'white',
   },
 
   questionWrapper: {
-    // borderColor: 'black',
-    // borderWidth: 3,
   },
 
   question: {
@@ -50,8 +56,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: 8,
     marginBottom: 8,
-    // borderColor: 'black',
-    // borderWidth: 3,
   },
 
   radioSuccess: {
@@ -70,8 +74,7 @@ export default StyleSheet.create({
   },
 
   answerText: {
-    color: 'black',
-    fontWeight: 'bold',
+   ...boldText,
   },
 
   hiddenResult: {
@@ -127,4 +130,18 @@ export default StyleSheet.create({
     color: 'black',
     fontSize: 28,
   },
+
+  closeButton: {
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    width: 800,
+    
+  },
+
+  closeText: {
+    ...boldText,
+    textAlign: 'center',
+  }
 });
