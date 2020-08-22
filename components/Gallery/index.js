@@ -50,7 +50,7 @@ export default class Gallery extends Component {
           rotateY={-90}
           asset="mona-lisa.jpg"
           title="Mona Lisa"
-          question="What is the name of the picture?"
+          question="What is this painting called?"
           answers={['Mona Lisa', 'The Last Supper', 'Guernica']}
           correctAnswer={0}
           artist="Leonardo da Vinci"

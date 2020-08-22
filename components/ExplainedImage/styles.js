@@ -1,34 +1,49 @@
 import { StyleSheet } from 'react-360';
 
+const radioFilled = {
+  borderWidth: 1,
+  width: 20,
+  height: 20,
+  borderRadius: 10,
+  backgroundColor: 'green',
+  marginRight: 16,
+};
+
+const boldText = {
+  color: 'black',
+  fontWeight: 'bold',
+};
+
 export default StyleSheet.create({
+  outerWrapper: {
+    flexDirection: 'column',
+
+    width: 400,
+    backgroundColor: 'blue',
+  },
+
   explainWrapper: {
     opacity: 0.9,
     flexDirection: 'row',
+    backgroundColor: 'white',
     borderColor: 'white',
     borderWidth: 5,
-    backgroundColor: 'white',
   },
 
   poll: {
     flexDirection: 'column',
     backgroundColor: 'white',
     opacity: 0.95,
-    width: 350,
-    // borderWidth: 3,
-    // borderColor: 'red',
+    width: 390,
   },
 
   firstPage: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     padding: 20,
-    // borderWidth: 5,
-    // borderColor: 'white',
   },
 
   questionWrapper: {
-    // borderColor: 'black',
-    // borderWidth: 3,
   },
 
   question: {
@@ -39,32 +54,27 @@ export default StyleSheet.create({
   answerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 8,
     marginBottom: 8,
-    // borderColor: 'black',
-    // borderWidth: 3,
   },
 
-  radioChecked: {
-    borderWidth: 1,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: 'black',
-    marginRight: 16,
+  radioSuccess: {
+    ...radioFilled,
+    backgroundColor: 'green',
+  },
+
+  radioError: {
+    ...radioFilled,
+    backgroundColor: 'red',
   },
 
   radioButton: {
-    borderWidth: 1,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    ...radioFilled,
     backgroundColor: 'white',
-    marginRight: 16,
   },
 
   answerText: {
-    color: 'black',
-    fontWeight: 'bold',
+   ...boldText,
   },
 
   hiddenResult: {
@@ -83,7 +93,7 @@ export default StyleSheet.create({
 
   result: {
     flexDirection: 'row',
-  },  
+  },
 
   seeMore: {
     justifyContent: 'flex-end',
@@ -105,7 +115,7 @@ export default StyleSheet.create({
 
   title: {
     color: 'black',
-    fontSize: 48,
+    fontSize: 40,
     fontWeight: 'bold',
     marginBottom: 20,
   },
@@ -113,11 +123,25 @@ export default StyleSheet.create({
   label: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: 32,
+    fontSize: 28,
   },
 
   content: {
     color: 'black',
-    fontSize: 28,
+    fontSize: 24,
   },
+
+  closeButton: {
+    backgroundColor: 'white',
+    alignSelf: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    width: 800,
+    
+  },
+
+  closeText: {
+    ...boldText,
+    textAlign: 'center',
+  }
 });
