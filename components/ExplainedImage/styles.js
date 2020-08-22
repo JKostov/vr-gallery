@@ -1,5 +1,14 @@
 import { StyleSheet } from 'react-360';
 
+const radioFilled = {
+  borderWidth: 1,
+  width: 20,
+  height: 20,
+  borderRadius: 10,
+  backgroundColor: 'green',
+  marginRight: 16,
+};
+
 export default StyleSheet.create({
   explainWrapper: {
     opacity: 0.9,
@@ -39,27 +48,25 @@ export default StyleSheet.create({
   answerWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 8,
     marginBottom: 8,
     // borderColor: 'black',
     // borderWidth: 3,
   },
 
-  radioChecked: {
-    borderWidth: 1,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: 'black',
-    marginRight: 16,
+  radioSuccess: {
+    ...radioFilled,
+    backgroundColor: 'green',
+  },
+
+  radioError: {
+    ...radioFilled,
+    backgroundColor: 'red',
   },
 
   radioButton: {
-    borderWidth: 1,
-    width: 20,
-    height: 20,
-    borderRadius: 10,
+    ...radioFilled,
     backgroundColor: 'white',
-    marginRight: 16,
   },
 
   answerText: {
@@ -83,7 +90,7 @@ export default StyleSheet.create({
 
   result: {
     flexDirection: 'row',
-  },  
+  },
 
   seeMore: {
     justifyContent: 'flex-end',
