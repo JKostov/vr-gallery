@@ -9,9 +9,13 @@ class ExplainedImageModule extends Module {
   }
 
   open(imageInfo) {
+    if (this._surface) {
+      return;
+    }
+
     this._surface = new Surface(850, 500, Surface.SurfaceShape.Flat);
     this._surface.setAngle(0, 0);
-    this._render = this._r360Instance.renderToSurface(this._r360Instance.createRoot("ExplainedImage", { imageInfo}), this._surface);
+    this._render = this._r360Instance.renderToSurface(this._r360Instance.createRoot("ExplainedImage", { imageInfo }), this._surface);
   }
 
   close() {

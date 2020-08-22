@@ -5,6 +5,7 @@ import ExplainedImage from "./components/ExplainedImage";
 import AnimatedText from "./components/AnimatedText";
 import Lights from './components/Lights';
 import Gallery from './components/Gallery';
+import MoveButtons from "./components/MoveButtons";
 
 export default class vr_gallery extends React.Component {
   render() {
@@ -24,3 +25,4 @@ AppRegistry.registerComponent("vr_gallery", () => vr_gallery);
 AppRegistry.registerComponent("AnimatedText", () => AnimatedText);
 AppRegistry.registerComponent("HoverImage", () => HoverImage);
 AppRegistry.registerComponent("ExplainedImage", () => ExplainedImage);
+AppRegistry.registerComponent("MoveButtons", () => MoveButtons);

@@ -2,6 +2,7 @@ import { ReactInstance, Location, Surface, Module } from 'react-360-web';
 import { Vector3, Quaternion } from 'three';
 import KeyboardMovementModule from './modules/keyboard-movement-module';
 import ExplainedImageModule from './modules/explained-image-module';
+import MoveButtonsModule from './modules/move-buttons-module';
 
 function init(bundle, parent, options = {}) {
 
@@ -11,6 +12,7 @@ function init(bundle, parent, options = {}) {
       new surfaceModule(),
       ctx => new KeyboardMovementModule.addModule(ctx, 9.3, -3, 13, -3.8),
       ExplainedImageModule.addModule,
+      MoveButtonsModule.addModule,
     ],
     frame: () => {
       const cameraQuaternion = r360.getCameraQuaternion();
@@ -28,12 +30,14 @@ function init(bundle, parent, options = {}) {
 
       // Custom surface follow camera
       ExplainedImageModule.setSurfaceAngle(horizAngle, vertAngle);
+      MoveButtonsModule.setSurfaceAngle(horizAngle, vertAngle);
     },
     ...options,
   });
 
   KeyboardMovementModule.setInstance(r360);
   ExplainedImageModule.setInstance(r360);
+  MoveButtonsModule.setInstance(r360);
 
   const customLocation = new Location([0, -1, 0]);
   r360.renderToLocation(r360.createRoot('vr_gallery'), customLocation);
