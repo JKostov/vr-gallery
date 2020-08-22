@@ -65,32 +65,32 @@ class KeyboardMovementModule extends Module {
 
   _onKeyDown(event) {
     if (event.keyCode === 38 || event.keyCode === 87) {
-      this._moveForward();
+      this.moveForward();
     }
     else if (event.keyCode === 40 || event.keyCode === 83) {
-      this._moveBackward();
+      this.moveBackward();
     }
     else if (event.keyCode === 37 || event.keyCode === 65) {
-      this._moveLeft();
+      this.moveLeft();
     }
     else if (event.keyCode === 39 || event.keyCode === 68) {
-      this._moveRight();
+      this.moveRight();
     }
   }
 
-  _moveForward() {
+  moveForward() {
     this._movingZ = this._movingSpeed;
   }
 
-  _moveBackward() {
+  moveBackward() {
     this._movingZ = -this._movingSpeed;
   }
 
-  _moveLeft() {
+  moveLeft() {
     this._movingX = this._movingSpeed;
   }
 
-  _moveRight() {
+  moveRight() {
     this._movingX = -this._movingSpeed;
   }
 }
