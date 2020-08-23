@@ -24,8 +24,8 @@ export default StyleSheet.create({
   grid: {
     display: 'flex',
     flexDirection: 'column',
-    width: 200,
-    height: 200,
+    width: 100,
+    height: 100,
     position: 'absolute',
     bottom: 0,
     right: 0,
@@ -37,7 +37,7 @@ export default StyleSheet.create({
   row: {
     display: 'flex',
     flexDirection: 'row',
-    flex: 1,
+    flex: 2,
   },
   flex1: {
     flex: 1,
@@ -49,10 +49,11 @@ export default StyleSheet.create({
   soundRow: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 150,
-    height: 50,
+    paddingLeft: 5,
+    paddingRight: 5,
+    width: 100,
+    height: 40,
+    justifyContent: 'center'
   },
 
   soundButton: {

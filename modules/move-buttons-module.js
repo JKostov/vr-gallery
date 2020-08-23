@@ -25,7 +25,7 @@ class MoveButtonsModule extends Module {
     this._surface.setRadius(0.1);
     this._surface.setDensity(5000);
 
-    this._r360Instance.renderToSurface(this._r360Instance.createRoot("MoveButtons", { width: clientWidth, height: clientHeight }), this._surface);
+    this._r360Instance.renderToSurface(this._r360Instance.createRoot('MoveButtons', { width: clientWidth, height: clientHeight }), this._surface);
   }
 }
 
