@@ -13,10 +13,12 @@ class ExplainedImageModule extends Module {
       return;
     }
 
-    this._surface = new Surface(850, 500, Surface.SurfaceShape.Flat);
+    const clientWidth = this._r360Instance._eventLayer.clientWidth;
+
+    this._surface = new Surface(800, 500, Surface.SurfaceShape.Flat);
 
     this._surface.setAngle(0, 0);
-    this._render = this._r360Instance.renderToSurface(this._r360Instance.createRoot('ExplainedImage', { imageInfo }), this._surface);
+    this._render = this._r360Instance.renderToSurface(this._r360Instance.createRoot('ExplainedImage', { imageInfo, width: clientWidth }), this._surface);
   }
 
   close() {

@@ -15,6 +15,11 @@ const boldText = {
 };
 
 export default StyleSheet.create({
+  
+  scaledStyle: {
+    transform : ([{scaleX: 0.8}, {scaleY: 0.8}])
+  },
+
   outerWrapper: {
     flexDirection: 'column',
 
@@ -22,7 +27,7 @@ export default StyleSheet.create({
     backgroundColor: 'blue',
   },
 
-  explainWrapper: {
+  explainWrapperRow: {
     opacity: 0.9,
     flexDirection: 'row',
     backgroundColor: 'white',
