@@ -15,9 +15,9 @@ const boldText = {
 };
 
 export default StyleSheet.create({
-  
+
   scaledStyle: {
-    transform : ([{scaleX: 0.8}, {scaleY: 0.8}])
+    transform: ([{ scaleX: 0.6 }, { scaleY: 0.6 }])
   },
 
   outerWrapper: {
@@ -79,7 +79,7 @@ export default StyleSheet.create({
   },
 
   answerText: {
-   ...boldText,
+    ...boldText,
   },
 
   hiddenResult: {
@@ -142,7 +142,7 @@ export default StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     width: 800,
-    
+
   },
 
   closeText: {
